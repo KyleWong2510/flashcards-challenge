@@ -6,12 +6,12 @@ import CardContainer from '../CardContainer/CardContainer'
 function App() {
   return (
     <div className="App">
-      {/* <Layout>
-        <Form />
-      </Layout> */}
       <Layout>
-        <CardContainer />
+        <Form />
       </Layout>
+      {/* <Layout>
+        <CardContainer />
+      </Layout> */}
     </div>
   );
 }
