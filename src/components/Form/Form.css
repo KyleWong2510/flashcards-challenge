@@ -1,0 +1,28 @@
+form {
+  align-items: center;
+  border: solid 1px;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: space-evenly;
+  padding: 3rem;
+  width: 35vw;
+}
+
+form div {
+  align-items: center;
+  display: flex;
+}
+
+form input,
+form select {
+  height: 3rem;
+  padding: 1rem;
+  width: 70%;
+}
+
+form label {
+  padding: 0 1rem;
+  text-align: end;
+  width: 30%;
+}
