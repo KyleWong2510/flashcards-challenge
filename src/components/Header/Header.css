@@ -2,7 +2,7 @@ header {
   background-color: blue;
   display: flex;
   flex-direction: column;
-  height: 20vh;
+  height: 15vh;
   justify-content: center;
 }
 
