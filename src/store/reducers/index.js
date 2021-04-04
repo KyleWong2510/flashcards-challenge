@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import { hasErrored } from './hasErrored'
-import { setFlashcards } from './setFlashcards'
+import { flashcards } from './flashcardsReducer'
 
 export const rootReducer = combineReducers({
   hasErrored, 
-  setFlashcards
+  flashcards
 })

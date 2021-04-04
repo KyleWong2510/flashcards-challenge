@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { useSelector, useDispatch, connect } from 'react-redux'
 import getFlashcards from '../../store/thunks/getFlashcards'
 
 import './Form.css'
 
-const Form = () => {
+const Form = (props) => {
   const categories = [
     {name: 'Geography', id: 22},
     {name: 'Science & Nature', id: 17},
@@ -30,7 +31,7 @@ const Form = () => {
     <option value={cat.name} id={cat.id}>{cat.name}</option>
   ))
 
-  const [category, setCategory] = useState(`${sortedCats[0]}`)
+  const [category, setCategory] = useState(`${sortedCats[0].name}`)
   const [questionCount, setQuestionCount] = useState(1)
   const dispatch = useDispatch()
     
@@ -39,6 +40,7 @@ const Form = () => {
     const categoryID = categories.find(cat => cat.name === category).id
     const url = `https://opentdb.com/api.php?amount=${questionCount}&category=${categoryID}&type=multiple`
     dispatch(getFlashcards(url))
+    props.history.push('/play')
   }
 
   return (
@@ -78,4 +80,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default connect(null, null)(withRouter(Form))
