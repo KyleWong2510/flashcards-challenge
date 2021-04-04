@@ -5,10 +5,6 @@ import getFlashcards from '../../store/thunks/getFlashcards'
 import './Form.css'
 
 const Form = () => {
-  const [category, setCategory] = useState('Film')
-  const [questionCount, setQuestionCount] = useState(1)
-  const dispatch = useDispatch()
-
   const categories = [
     {name: 'Geography', id: 22},
     {name: 'Science & Nature', id: 17},
@@ -20,12 +16,24 @@ const Form = () => {
     {name: 'Television', id: 14},
   ]
 
-  const dropdownOptions = categories
-    .sort((a, b) => a.name - b.name)
-    .map(cat => (
-      <option value={cat.name} id={cat.id}>{cat.name}</option>
-    ))
+  const sortedCats = categories.sort((a, b) => {
+    if (a.name < b.name) {
+      return -1
+    }
+    if (a.name > b.name) {
+      return 1
+    }
+    return 0
+  })
+  
+  const dropdownOptions = sortedCats.map(cat => (
+    <option value={cat.name} id={cat.id}>{cat.name}</option>
+  ))
 
+  const [category, setCategory] = useState(`${sortedCats[0]}`)
+  const [questionCount, setQuestionCount] = useState(1)
+  const dispatch = useDispatch()
+    
   const handleSubmit = (e) => {
     e.preventDefault()
     const categoryID = categories.find(cat => cat.name === category).id
