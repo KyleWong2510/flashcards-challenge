@@ -1,6 +1,6 @@
 const initialState = ''
 
-export const flashcards = (state = initialState, action) => {
+export const user = (state = initialState, action) => {
   switch(action.type) {
     case 'SET_USER':
       return action.payload

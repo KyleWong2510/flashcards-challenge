@@ -1,6 +1,6 @@
 const initialState = 0
 
-export const flashcards = (state = initialState, action) => {
+export const score = (state = initialState, action) => {
   switch(action.type) {
     case 'SET_SCORE':
       return action.payload

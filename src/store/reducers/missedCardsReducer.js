@@ -1,6 +1,6 @@
 const initialState = []
 
-export const flashcards = (state = initialState, action) => {
+export const missedCards = (state = initialState, action) => {
   switch(action.type) {
     case 'SET_MISSED_CARDS':
       return action.payload
