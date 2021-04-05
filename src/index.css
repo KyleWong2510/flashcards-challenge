@@ -19,9 +19,17 @@ code {
     monospace;
 }
 
-button {
+button,
+.submit-btn {
+  border-radius: 5px;
   font-size: 2em;
   max-height: 5rem;
   padding: 0.5rem;
   max-width: 9rem;
+}
+
+button:hover,
+.submit-btn:hover {
+  cursor: pointer;
+  transform: scale(1.05);
 }

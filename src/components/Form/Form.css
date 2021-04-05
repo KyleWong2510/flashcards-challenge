@@ -19,15 +19,27 @@ form div {
 
 form input,
 form select {
+  border: none;
+  border-radius: 5px;
   height: 3rem;
   padding: 1rem;
   width: 70%;
 }
 
+form input:hover,
+form select:hover {
+  cursor: pointer;
+}
+
 form label {
+  font-weight: 500;
   padding: 0 1rem;
   text-align: end;
   width: 30%;
+}
+
+.submit-btn {
+  font-size: 1em;
 }
 
 @media (max-width: 1260px) {

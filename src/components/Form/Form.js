@@ -78,6 +78,7 @@ const Form = (props) => {
       </div>
       <input 
         aria-label='submit-btn'
+        className='submit-btn'
         type='submit'
         value='Begin!'
         disabled={!username && questionCount > 0 ? 'disabled' : null}
