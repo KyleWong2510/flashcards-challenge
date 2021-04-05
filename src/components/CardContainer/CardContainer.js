@@ -11,7 +11,6 @@ const CardContainer = (props) => {
 
   const [currentCard, setCurrentCard] = useState(0)
   const [score, setScore] = useState(0)
-  const [completedQuestions, setCompletedQuestions] = useState(0)
   const [isQuestion, setIsQuestion] = useState(true)
   const [missedQuestions, setMissedQuestions] = useState([])
 
@@ -26,7 +25,6 @@ const CardContainer = (props) => {
 
   const handleCorrect = () => {
     setScore(score + 1)
-    setCompletedQuestions(completedQuestions + 1)
     setIsQuestion(true)
     nextCard()
   }
@@ -34,7 +32,6 @@ const CardContainer = (props) => {
   const handleIncorrect = () => {
     setMissedQuestions([...missedQuestions, flashcards[currentCard]])
     dispatch(setMissedCards(missedQuestions))
-    setCompletedQuestions(completedQuestions + 1)
     setIsQuestion(true)
     nextCard()
   }
@@ -57,7 +54,7 @@ const CardContainer = (props) => {
         </div>
         <div>
           <h2>Score:</h2>
-          <p>{score} / {completedQuestions}</p>
+          <p>{score} / {currentCard}</p>
         </div>
       </div>
       {cards[currentCard]}

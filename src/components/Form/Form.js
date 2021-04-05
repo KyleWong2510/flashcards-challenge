@@ -30,6 +30,7 @@ const Form = (props) => {
   const dropdownOptions = sortedCats.map(cat => (
     <option value={cat.name} id={cat.id}>{cat.name}</option>
   ))
+  
   const [username, setUsername] = useState('')
   const [questionType, setQuestionType] = useState(`${sortedCats[0].name}`)
   const [questionCount, setQuestionCount] = useState(1)
