@@ -1,4 +1,4 @@
-.card-container {
+.end-game {
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -6,18 +6,13 @@
   justify-content: space-evenly;
 }
 
-.metrics {
-  display: flex;
-  width: 30%;
-}
-
-.btn-container {
+.end-game-btn-container {
   display: flex;
   justify-content: space-between;
-  width: 10%;
+  width: 20%;
 }
 
-.btn-container button {
+.end-game-btn-container button {
   height: 2rem;
   width: 5rem;
 }
