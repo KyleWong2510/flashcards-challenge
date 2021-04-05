@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
-import { useSelector, useDispatch, connect } from 'react-redux'
+import { useDispatch, connect } from 'react-redux'
 import getFlashcards from '../../store/thunks/getFlashcards'
 import { setUser, setCategory } from '../../store/actions'
 import './Form.css'
@@ -80,6 +80,7 @@ const Form = (props) => {
         aria-label='submit-btn'
         type='submit'
         value='Begin!'
+        disabled={!username && questionCount > 0 ? 'disabled' : null}
       />
     </form>
   )

@@ -4,6 +4,7 @@ header {
   flex-direction: column;
   height: 15vh;
   justify-content: center;
+  text-align: center;
 }
 
 header p {

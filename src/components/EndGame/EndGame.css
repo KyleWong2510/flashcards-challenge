@@ -1,18 +1,29 @@
 .end-game {
   align-items: center;
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: space-evenly;
+  height: 40vh;
+  width: 30vw;
 }
 
 .end-game-btn-container {
   display: flex;
   justify-content: space-between;
-  width: 20%;
+  width: 50%;
 }
 
 .end-game-btn-container button {
   height: 2rem;
   width: 5rem;
+}
+
+.end-game span {
+  font-weight: 800;
+}
+
+.end-game-instructions {
+  align-self: center;
+  width: fit-content;
 }

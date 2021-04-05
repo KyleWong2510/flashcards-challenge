@@ -1,4 +1,4 @@
-import { setFlashcards, hasErrored } from '../actions'
+import { setFlashcards, setError } from '../actions'
 
 const getFlashcards = (url) => {
   return async (dispatch) => {
@@ -11,7 +11,7 @@ const getFlashcards = (url) => {
       const data = await response.json()
       dispatch(setFlashcards(data.results))
     } catch (err) {
-      dispatch(hasErrored(err.message))
+      dispatch(setError(err.message))
     }
   }
 }
