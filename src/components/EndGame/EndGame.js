@@ -13,9 +13,6 @@ const EndGame = (props) => {
 
   const getPercentCorrect = () => {
     const numCorrect = flashcards.length - missedCards.length
-    console.log('FC', flashcards.length)
-    console.log('MC', missedCards.length)
-    console.log('num', numCorrect)
 
     return (numCorrect / flashcards.length * 100).toFixed(2)
   }
@@ -47,9 +44,15 @@ const EndGame = (props) => {
         <p>Great Job, {user}! You got {percentCorrect}% correct in the {category} category!</p> :
         <p>Ouch, {user}! You got {percentCorrect}% correct in the {category} category. You'll do better next time!</p>
       }
+      <div className='end-game-instructions'>
+        <span>That's it! The game is over. Below you have some options:</span><br/>
+        {missedCards.length > 0 && (<p><span>Review</span> - Start over with just the question you missed.</p>)}
+        <span>Try Again</span> - Start over with all of the same questions.<br/>
+        <span>New Game</span> - Start over with an all new name, category, and number of questions.
+      </div>
       <div className='end-game-btn-container'>
         {missedCards.length > 0 && 
-          <button onClick={handleReviewClick}>Review Incorrect</button>
+          <button onClick={handleReviewClick}>Review</button>
         }
         <button onClick={handleTryAgainClick}>Try Again</button>
         <button onClick={handleNewGameClick}>New Game</button>

@@ -34,7 +34,11 @@ export const resetCategory = () => ({
   type: 'RESET_CATEGORY'
 })
 
-export const hasErrored = (message) => ({
-  type: 'HAS_ERRORED',
+export const setError = (message) => ({
+  type: 'SET_ERROR',
   payload: message
+})
+
+export const resetError = () => ({
+  type: 'RESET_ERROR'
 })
