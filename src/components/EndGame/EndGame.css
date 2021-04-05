@@ -1,22 +1,28 @@
 .end-game {
   align-items: center;
+  background-color: rgb(218, 217, 217);
   border: 1px solid black;
+  box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   height: 40vh;
+  min-width: 575px;
+  padding: 1.5rem 2.5rem;
   width: 30vw;
 }
 
 .end-game-btn-container {
   display: flex;
   justify-content: space-between;
-  width: 50%;
+  width: 80%;
 }
 
 .end-game-btn-container button {
-  height: 2rem;
-  width: 5rem;
+  font-size: 1.5em;
+  height: fit-content;
+  padding: 0.5rem;
+  width: fit-content;
 }
 
 .end-game span {

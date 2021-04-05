@@ -14,10 +14,16 @@
 .btn-container {
   display: flex;
   justify-content: space-between;
-  width: 10%;
+  width: 30%;
 }
 
 .btn-container button {
-  height: 2rem;
-  width: 5rem;
+  margin: 0 2rem;
 }
+
+@media (max-width: 1360px) {
+  .btn-container {
+    justify-content: center;
+    width: 100%;
+  }
+} ;

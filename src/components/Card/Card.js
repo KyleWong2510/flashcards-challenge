@@ -5,6 +5,7 @@ const Card = ({question, correctAnswer, isQuestion, setIsQuestion}) => {
 
   return (
     <section className='card'>
+      {isQuestion ? <h1>Question</h1> : <h1>Answer</h1>}
       <div className='question' onClick={() => setIsQuestion(!isQuestion)}>
         {isQuestion ? question : correctAnswer}
       </div>
