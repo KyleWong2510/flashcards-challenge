@@ -1,8 +1,32 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import '@testing-library/jest-dom/extend-expect';
 import App from './App';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { rootReducer } from '../../store/reducers';
+import thunk from 'redux-thunk';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+const store = createStore(rootReducer, {
+  category: 'Film',
+  flashcards: [{
+    question: 'Why?',
+    correct_answer: 'Because'
+  }],
+  error: '',
+  missedCards: [],
+  user: 'Test Name',
+}, applyMiddleware(thunk))
+
+describe('App', () => {
+  it('should render the card, question side up', () => {
+    const { getByText } = render(
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>);
+  });
 });
+
