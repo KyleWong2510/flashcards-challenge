@@ -13,6 +13,10 @@ const EndGame = (props) => {
 
   const getPercentCorrect = () => {
     const numCorrect = flashcards.length - missedCards.length
+    console.log('FC', flashcards.length)
+    console.log('MC', missedCards.length)
+    console.log('num', numCorrect)
+
     return (numCorrect / flashcards.length * 100).toFixed(2)
   }
   const percentCorrect = getPercentCorrect()

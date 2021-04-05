@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Card from '../Card/Card'
 import { withRouter } from 'react-router-dom'
+import { decode } from 'html-entities'
 import { useSelector, useDispatch, connect } from 'react-redux'
 import './CardContainer.css'
 import { setMissedCards } from '../../store/actions'
@@ -38,8 +39,8 @@ const CardContainer = (props) => {
 
   const cards = flashcards.map((card) => (
     <Card 
-      question={card.question}
-      correctAnswer={card.correct_answer}
+      question={decode(card.question)}
+      correctAnswer={decode(card.correct_answer)}
       isQuestion={isQuestion}
       setIsQuestion={setIsQuestion}
     />
