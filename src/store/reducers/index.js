@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux'
-import { hasErrored } from './hasErrored'
+import { category } from './categoryReducer'
 import { flashcards } from './flashcardsReducer'
-import { user } from './userReducer'
-import { score } from './scoreReducer'
+import { hasErrored } from './hasErrored'
 import { missedCards } from './missedCardsReducer'
+import { score } from './scoreReducer'
+import { user } from './userReducer'
 
 export const rootReducer = combineReducers({
-  hasErrored, 
+  category,
   flashcards,
-  user,
-  score,
+  hasErrored, 
   missedCards,
+  score,
+  user,
 })

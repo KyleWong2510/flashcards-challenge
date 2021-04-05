@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import { useSelector, useDispatch, connect } from 'react-redux'
 import getFlashcards from '../../store/thunks/getFlashcards'
-
+import { setUser, setCategory } from '../../store/actions'
 import './Form.css'
 
 const Form = (props) => {
@@ -30,16 +30,18 @@ const Form = (props) => {
   const dropdownOptions = sortedCats.map(cat => (
     <option value={cat.name} id={cat.id}>{cat.name}</option>
   ))
-
-  const [category, setCategory] = useState(`${sortedCats[0].name}`)
+  const [username, setUsername] = useState('')
+  const [questionType, setQuestionType] = useState(`${sortedCats[0].name}`)
   const [questionCount, setQuestionCount] = useState(1)
   const dispatch = useDispatch()
-    
+  
   const handleSubmit = (e) => {
     e.preventDefault()
-    const categoryID = categories.find(cat => cat.name === category).id
+    const categoryID = categories.find(cat => cat.name === questionType).id
     const url = `https://opentdb.com/api.php?amount=${questionCount}&category=${categoryID}&type=multiple`
     dispatch(getFlashcards(url))
+    dispatch(setUser(username))
+    dispatch(setCategory(questionType))
     props.history.push('/play')
   }
 
@@ -51,6 +53,8 @@ const Form = (props) => {
           id='name-input'
           type='text'
           placeholder='Name...'
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
       </div>
       <div>
@@ -67,7 +71,7 @@ const Form = (props) => {
       </div>
       <div>
         <label htmlFor='category-input'>Category:</label>
-        <select id='category-input' value={category} onChange={(e) => setCategory(e.target.value)}>
+        <select id='category-input' value={questionType} onChange={(e) => setQuestionType(e.target.value)}>
           {dropdownOptions}
         </select>
       </div>

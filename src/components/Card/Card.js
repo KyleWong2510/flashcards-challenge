@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './Card.css'
 
 const Card = ({question, correctAnswer, isQuestion, setIsQuestion}) => {
+
   return (
     <section className='card'>
       <div className='question' onClick={() => setIsQuestion(!isQuestion)}>

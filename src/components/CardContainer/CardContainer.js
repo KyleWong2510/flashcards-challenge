@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
 import Card from '../Card/Card'
 import { withRouter } from 'react-router-dom'
-import { useSelector, connect } from 'react-redux'
+import { useSelector, useDispatch, connect } from 'react-redux'
 import './CardContainer.css'
+import { setMissedCards } from '../../store/actions'
 
 const CardContainer = (props) => {
   const flashcards = useSelector((state) => state.flashcards)
+  const dispatch = useDispatch()
+
   const [currentCard, setCurrentCard] = useState(0)
   const [score, setScore] = useState(0)
   const [completedQuestions, setCompletedQuestions] = useState(0)
   const [isQuestion, setIsQuestion] = useState(true)
+  const [missedQuestions, setMissedQuestions] = useState([])
 
   const nextCard = () => {
     if (currentCard < cards.length - 1) {
@@ -28,6 +32,8 @@ const CardContainer = (props) => {
   }
 
   const handleIncorrect = () => {
+    setMissedQuestions([...missedQuestions, flashcards[currentCard]])
+    dispatch(setMissedCards(missedQuestions))
     setCompletedQuestions(completedQuestions + 1)
     setIsQuestion(true)
     nextCard()
@@ -55,8 +61,10 @@ const CardContainer = (props) => {
         </div>
       </div>
       {cards[currentCard]}
-      <button onClick={handleCorrect}>Right</button>
-      <button onClick={handleIncorrect}>Wrong</button>
+      <div className='btn-container'>
+        <button onClick={handleCorrect}>Right</button>
+        <button onClick={handleIncorrect}>Wrong</button>
+      </div>
     </section>
   )
 }

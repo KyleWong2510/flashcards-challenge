@@ -34,6 +34,15 @@ export const resetMissedCards = () => ({
   type: 'RESET_MISSED_CARDS'
 }) 
 
+export const setCategory = (category) => ({
+  type: 'SET_CATEGORY',
+  payload: category
+})
+
+export const resetCategory = () => ({
+  type: 'RESET_CATEGORY'
+})
+
 export const hasErrored = (message) => ({
   type: 'HAS_ERRORED',
   payload: message

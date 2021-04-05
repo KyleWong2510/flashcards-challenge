@@ -10,3 +10,14 @@
   display: flex;
   width: 30%;
 }
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 10%;
+}
+
+.btn-container button {
+  height: 2rem;
+  width: 5rem;
+}
