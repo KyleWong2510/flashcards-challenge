@@ -44,7 +44,7 @@ const EndGame = (props) => {
         <p>Great Job, {user}! You got {percentCorrect}% correct in the {category} category!</p> :
         <p>Ouch, {user}! You got {percentCorrect}% correct in the {category} category. You'll do better next time!</p>
       }
-      <div className='end-game-instructions'>
+      <div className='end-game-instructions' data-testid='end-game-instructions'>
         <span>That's it! The game is over. Below you have some options:</span><br/>
         {missedCards.length > 0 && (<p><span>Review</span> - Start over with just the question you missed.</p>)}
         <span>Try Again</span> - Start over with all of the same questions.<br/>
@@ -52,10 +52,10 @@ const EndGame = (props) => {
       </div>
       <div className='end-game-btn-container'>
         {missedCards.length > 0 && 
-          <button onClick={handleReviewClick}>Review</button>
+          <button onClick={handleReviewClick} data-testid='review-btn'>Review</button>
         }
-        <button onClick={handleTryAgainClick}>Try Again</button>
-        <button onClick={handleNewGameClick}>New Game</button>
+        <button onClick={handleTryAgainClick} data-testid='try-again-btn'>Try Again</button>
+        <button onClick={handleNewGameClick} data-testid='new-game-btn'>New Game</button>
       </div>
     </div>
   )

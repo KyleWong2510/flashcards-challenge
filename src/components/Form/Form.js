@@ -28,7 +28,7 @@ const Form = (props) => {
   })
   
   const dropdownOptions = sortedCats.map(cat => (
-    <option value={cat.name} id={cat.id}>{cat.name}</option>
+    <option key={cat.id} value={cat.name} id={cat.id}>{cat.name}</option>
   ))
   
   const [username, setUsername] = useState('')
